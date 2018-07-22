@@ -1,0 +1,165 @@
+.error{
+    color: #FF0000;
+  }
+
+  body {
+    padding:20px 0 30px;
+    font:14px/1.5 Arial, sans-serif;
+    text-align:center;
+    color:#333;
+    background:#fff;
+}
+
+a {
+    font-weight:bold;
+    color:#dd3333;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration:none;
+}
+
+.container {
+    position:relative;
+    z-index:1;
+    width:600px;
+    padding:20px;
+    margin:0 auto;
+    background:#fff;
+}
+
+.container:after {
+    content:"";
+    display:block;
+    clear:both;
+    visibility:hidden;
+    height:0;
+    font-size:0;
+}
+
+/* Sombra general */
+
+.drop-shadow {
+    position:relative;
+    float:left;
+    width:40%;
+    padding:1em;
+    margin:2em 10px 4em;
+    background:#fff;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.drop-shadow:before,
+.drop-shadow:after {
+    content:"";
+    position:absolute;
+    z-index:-2;
+}
+
+.drop-shadow p {
+    font-size:16px;
+    font-weight:bold;
+}
+
+/* Bordes redondeados */
+
+.lifted {
+    -moz-border-radius:4px;
+         border-radius:4px;
+}
+
+.lifted:before,
+.lifted:after {
+    bottom:15px;
+    left:10px;
+    width:50%;
+    height:20%;
+    max-width:300px;
+    max-height:100px;
+    -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+       -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+            box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+    -webkit-transform:rotate(-3deg);
+       -moz-transform:rotate(-3deg);
+        -ms-transform:rotate(-3deg);
+         -o-transform:rotate(-3deg);
+            transform:rotate(-3deg);
+}
+
+.lifted:after {
+    right:10px;
+    left:auto;
+    -webkit-transform:rotate(3deg);
+       -moz-transform:rotate(3deg);
+        -ms-transform:rotate(3deg);
+         -o-transform:rotate(3deg);
+            transform:rotate(3deg);
+}
+
+/* Bordes curvados */
+
+.curled {
+    border:1px solid #efefef;
+    -moz-border-radius:0 0 120px 120px / 0 0 6px 6px;
+         border-radius:0 0 120px 120px / 0 0 6px 6px;
+}
+
+.curled:before,
+.curled:after {
+    bottom:12px;
+    left:10px;
+    width:50%;
+    height:55%;
+    max-width:200px;
+    max-height:100px;
+    -webkit-box-shadow:0 8px 12px rgba(0, 0, 0, 0.5);
+       -moz-box-shadow:0 8px 12px rgba(0, 0, 0, 0.5);
+            box-shadow:0 8px 12px rgba(0, 0, 0, 0.5);
+    -webkit-transform:skew(-8deg) rotate(-3deg);
+       -moz-transform:skew(-8deg) rotate(-3deg);
+        -ms-transform:skew(-8deg) rotate(-3deg);
+         -o-transform:skew(-8deg) rotate(-3deg);
+            transform:skew(-8deg) rotate(-3deg);
+}
+
+.curled:after {
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
+
+/* Caja volteada */
+
+.rotated {
+    -webkit-box-shadow:none;
+       -moz-box-shadow:none;
+            box-shadow:none;
+    -webkit-transform:rotate(-3deg);
+       -moz-transform:rotate(-3deg);
+        -ms-transform:rotate(-3deg);
+         -o-transform:rotate(-3deg);
+            transform:rotate(-3deg);
+}
+
+.rotated > :first-child:before {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#fff;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}

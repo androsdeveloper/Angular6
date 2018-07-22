@@ -1,0 +1,18 @@
+
+<table class="table table-sm table-hover">
+  <tr *ngFor="let insurance of insuranceService.insuranceList">
+    <td>{{insurance.Name}}</td>
+    <td>{{insurance.DescriptionInsurance}}</td>
+    <td>{{insurance.Price}}</td>
+    <td>{{insurance.StartValidity}}</td>
+
+    <td>
+      <a class="btn" (click)="showForEdit(insurance)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn text-danger" (click)="onDelete(insurance.InsuranceId)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>

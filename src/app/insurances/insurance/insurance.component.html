@@ -1,0 +1,58 @@
+<form class="emp-form" #insuranceForm="ngForm" (ngSubmit)="onSubmit(insuranceForm)">
+  <input type="hidden" name="InsuranceId" #InsuranceId="ngModel" [(ngModel)]="insuranceService.selectedInsurance.InsuranceId">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control"  name="Name" #Name="ngModel" [(ngModel)]="insuranceService.selectedInsurance.Name"
+        placeholder="Name" required>
+      <div class="validation-error" *ngIf="Name.invalid && Name.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control"   name="DescriptionInsurance" #DescriptionInsurance="ngModel" [(ngModel)]="insuranceService.selectedInsurance.DescriptionInsurance" 
+      placeholder="Description Insurance" required>
+      <div class="validation-error" *ngIf="DescriptionInsurance.invalid && DescriptionInsurance.touched">This Field is Required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+  
+    <select [(ngModel)]="insuranceService.selectedInsurance.TypeCoveringId"  name="TypeCoveringId" #TypeCoveringId="ngModel"  class="form-control" placeholder="TypeCoveringId">
+   
+    <option  *ngFor="let tc of typeCovering" [value]="tc.TypeCoveringId"> {{tc.Name}} </option>
+  </select>
+    </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" type="number"  name="Coverage" #Coverage="ngModel" [(ngModel)]="insuranceService.selectedInsurance.Coverage" placeholder="Coverage">
+    </div>
+    <div class="form-group col-md-6">
+      <input type="date" class="form-control" name="StartValidity" #StartValidity="ngModel" [(ngModel)]="insuranceService.selectedInsurance.StartValidity" placeholder="Start Validity">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      
+        <input class="form-control" type="number"  name="Price" #Price="ngModel" [(ngModel)]="insuranceService.selectedInsurance.Price" placeholder="Price">
+   
+      </div>
+    <div class="form-group col-md-6">
+    
+  
+        <select [(ngModel)]="insuranceService.selectedInsurance.TypeRiskId" name="TypeRiskId" #TypeRiskId="ngModel"  (change)="selectChangeHandler($event)" class="form-control" placeholder="TypeRiskId">
+       
+          <option *ngFor="let tr of typeRisk" [value]="tr.TypeRiskId"> {{tr.Name}} </option>
+    </select>
+ 
+
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!insuranceForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+        <i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(insuranceForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>

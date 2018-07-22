@@ -1,0 +1,34 @@
+<form class="emp-form" #assignForm="ngForm" (ngSubmit)="onSubmit(assignForm)">
+  <input type="hidden" name="AssignId" #AssignId="ngModel" [(ngModel)]="assignService.selectedAssign.AssignId">
+  <div class="form-row">
+  <div class="form-group"  style="width: 100%">  
+    <select [(ngModel)]="assignService.selectedAssign.EmployeeID"  name="EmployeeID" #EmployeeId="ngModel"  class="form-control" placeholder="EmployeeID">
+   
+    <option  *ngFor="let tc of employee" [value]="tc.EmployeeID"> {{tc.FirstName}} - {{tc.LastName}}  </option>
+  </select>
+    </div>
+    </div>
+ 
+
+  <div class="form-row">   
+    <div class="form-group" style="width: 100%">    
+  
+        <select [(ngModel)]="assignService.selectedAssign.InsuranceId" name="InsuranceId" #InsuranceId="ngModel"  class="form-control" placeholder="InsuranceId">
+       
+          <option *ngFor="let tr of insurance" [value]="tr.InsuranceId"> {{tr.Name}} </option>
+    </select>
+ 
+
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!assignForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+        <i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(assignForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>
